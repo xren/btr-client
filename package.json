@@ -1,0 +1,28 @@
+{
+  "name": "btr_tracker",
+  "version": "0.0.1",
+  "main": "server",
+  "script": {
+    "start": "node server.js"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt-contrib-uglify": "~0.2.2",
+    "matchdep": "~0.1.2",
+    "matchmodule": "~0.1.0",
+    "grunt-express-server": "~0.3.1"
+  },
+  "dependencies": {
+    "express": "3.2.0",
+    "underscore": "~1.4.4",
+    "q": "~0.9.3",
+    "assert": "~0.4.9",
+    "ejs": "~0.8.4",
+    "q-io": "~1.7.1"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  }
+}
