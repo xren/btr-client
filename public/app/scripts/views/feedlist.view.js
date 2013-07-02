@@ -45,7 +45,8 @@ define([
                 success: function (data) {
                     self.globalEvents.trigger('global:refresh', 'all');
                 }
-            })
+            });
+            $('#feed-add > input').val('');
         }
 
     });

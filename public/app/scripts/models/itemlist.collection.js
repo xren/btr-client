@@ -16,7 +16,7 @@ define([
 			console.log('INIT: itemlist collection');
             this.fetch({target: options.target});
             this.globalEvents = options.globalEvents;
-            this.bindEvents();
+            // this.bindEvents();
 		},
 
 		fetch: function (options) {

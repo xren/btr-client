@@ -24,9 +24,10 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 .col-left {
     overflow-y: scroll;
     height: 500px;
-    width: 180px;
+    width: 20%;
     float: left;
     background-color: #EEE;
+    margin-left: 1%;
 }
 
 .col-right {
@@ -34,7 +35,7 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
     overflow-y: scroll;
     height: 500px;
     float: left;
-    width: 500px;
+    width: 77%;
 
     #item-list {
         list-style-type: none;
