@@ -8,6 +8,14 @@ module.exports = function (grunt) {
         'lib/*.js',
         'lib/**/*.js'
     ];
+
+    var feedJS = [
+        // 'feed/**/*.*',
+        // 'feed/*.*',
+        'feed/**',
+        'feed/**/**',
+        'feed/**/**/*.*'
+    ];
     
     grunt.initConfig({
         livereload: {
@@ -17,8 +25,20 @@ module.exports = function (grunt) {
             express: {
                 files: allJS,
                 tasks: ['express:dev']
+            },
+            feed: {
+                files: feedJS,
+                tasks: ['shell:notify-file-change']
             }
         },
+
+        watch: {
+            feeds: {
+                files: feedJS,
+                tasks: ['shell:notify-file-change']
+            }
+        },
+
         express: {
             options: {
                 args: ['--debug']
@@ -33,8 +53,21 @@ module.exports = function (grunt) {
             development: {
                 src: 'development.json'
             }
+        },
+        shell: {
+            'notify-file-change': {
+                command: 'curl http://localhost:3000/api/v1/feeds/update/new'
+            }
         }
     });
 
-    grunt.registerTask('default', ['livereload-start', 'env:development', 'express:dev', 'regarde']);
+    grunt.registerTask('default', ['livereload-start', 'env:development', 'express:dev', 'regarde:express']);
+    // grunt.event.on('regarde:file:added', function () {
+    //     console.log('file added');
+    // });
+
+    // grunt.event.on('regarde:file:changed', function () {
+    //     console.log('file changed');
+    // });
+
 };

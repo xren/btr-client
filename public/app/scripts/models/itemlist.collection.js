@@ -21,7 +21,9 @@ define([
 
 		fetch: function (options) {
 			var self = this;
-			this.target = options.target;
+			if (options.target !== 'current') {
+				this.target = options.target;
+			}
 			console.log('item target', self.target);
 			$.ajax({
 				url: '/api/v1/feed/' + self.target,
@@ -40,8 +42,6 @@ define([
         	this.globalEvents.on('global:refresh', function (target) {
         		self.fetch({target: target});
         	}, this);
-            // this.on('add', function () {console.log('model add');}, this);
-            // this.on('remove', function () {console.log('model remove');}, this);            
         }
 	});
 });

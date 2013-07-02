@@ -26,12 +26,12 @@ define([
             console.log('INIT: app router');
             this.$main = $('#reader');
 
-            var globalEvents = {};
-            _.extend(globalEvents, Backbone.Events);
+            var globalEvents = options.globalEvents || _.extend(globalEvents, Backbone.Events);
 
             this.feedListCollection = new FeedListCollection({globalEvents: globalEvents});
             this.feedListView = new FeedListView({
-                collection: this.feedListCollection
+                collection: this.feedListCollection,
+                globalEvents: globalEvents
             });
 
             this.itemListCollection = new ItemListCollection({target: 'all', globalEvents: globalEvents});

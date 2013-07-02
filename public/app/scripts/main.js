@@ -42,5 +42,30 @@ require([
     'backbone',
     'appRouter'
 ], function ($, Bootstrap, _, Backbone, AppRouter) {
-    var App = window.App = new AppRouter();
+    var globalEvents = {};
+    globalEvents = _.extend(globalEvents, Backbone.Events);
+
+    (function worker() {
+      $.ajax({
+        url: '/api/v1/feeds/update/check', 
+        success: function(data) {
+            if (data.success) {
+                console.log('checking new update');
+                if (data.entity.newUpdate) {
+                    globalEvents.trigger('global:refresh', 'current');
+                }
+            } else {
+                console.error('error when checking new update', data);
+            }
+        },
+        complete: function() {
+          // Schedule the next request when the current one's complete
+          setTimeout(worker, 4000);
+        }
+      });
+    })();
+
+    var App = window.App = new AppRouter({
+        globalEvents: globalEvents
+    });
 });

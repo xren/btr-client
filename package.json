@@ -23,7 +23,11 @@
     "q": "~0.9.3",
     "assert": "~0.4.9",
     "ejs": "~0.8.4",
-    "q-io": "~1.7.1"
+    "q-io": "~1.7.1",
+    "grunt-shell": "~0.3.0",
+    "grunt-contrib-watch": "~0.4.4",
+    "feedparser": "~0.16.1",
+    "request": "~2.21.0"
   },
   "engines": {
     "node": ">=0.8.0"
