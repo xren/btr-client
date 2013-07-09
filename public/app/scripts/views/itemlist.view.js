@@ -46,7 +46,7 @@ define([
             var collectionJSON = this.collection.toJSON();
             console.log('RENDER: item list', collectionJSON);
             if (collectionJSON.length === 0) {
-                collectionJSON = {title: 'No unread cotent', content: ''};
+                collectionJSON = {title: 'No unread content', content: ''};
             } 
             this.$el.find('#item-list').html(this.templateList({items: collectionJSON}));
             this.$el.find('#item-list-title-container').html(this.templateHeader({title: this.collection.target}));

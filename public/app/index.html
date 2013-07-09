@@ -35,7 +35,16 @@
             <div id="content-main">
                 <section id="feed-list-container" class="col-left">
                     <ul id="feed-list" class="nav nav-list">
-                        <li class="nav-header">No Subscriptions</li>
+                        <li class="nav-header">Subscriptions(0)</li>
+                    </ul>
+                    <ul id="recommend-list" class="nav nav-list">
+                        <li class="nav-header">Recommendations(23)</li>
+                    </ul>
+                    <ul id="favorite-list" class="nav nav-list">
+                        <li class="nav-header">Favorites(3)</li>
+                    </ul>
+                    <ul id="trend-list" class="nav nav-list">
+                        <li class="nav-header">Trends</li>
                     </ul>
                 </section>
                 <section id="item-list-container" class="col-right">
@@ -80,6 +89,10 @@
                 <li class="item-list-item" data-title="{{title}}">
                     <p class="title">{{title}}</p>
                     <p class="content">{{{content}}}</p>
+                    <div class="btn-group pull-right">
+                        <button class="btn"><i class="icon-star"></i></button>
+                        <button class="btn"><i class="icon-thumbs-up"></i></button>
+                    </div>
                 </li>
             {{/items}}
         </script>
