@@ -8,7 +8,7 @@ var feed = require('./lib/feed');
 
 
 app.configure(function () {
-    app.set('views', path.join(__dirname, 'public/dist'));
+    app.set('views', path.join(__dirname, 'public'));
     app.engine('html', require('ejs').renderFile);
 
     app.use(express.favicon());
@@ -17,7 +17,7 @@ app.configure(function () {
     app.use(express.methodOverride());
 
     app.use(app.router);
-    app.use(express.static(path.join(__dirname, 'public/dist')));
+    app.use(express.static(path.join(__dirname, 'public')));
 
     app.use(feed);
 });
